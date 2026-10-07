@@ -1,0 +1,84 @@
+cpu_soc
+|
++-- clock_manager
+|
++-- uart0_wbm                         Wishbone Master M0
+|   |
+|   +-- uart
+|   |   +-- uart_baudrate
+|   |   +-- uart_rx
+|   |   `-- uart_tx
+|   |
+|   +-- RX FIFO
+|   +-- protocol parser
+|   +-- CRC-16
+|   `-- Wishbone transaction FSM
+|
++-- wb_crossbar
+|   |
+|   +-- wb_address_decoder
+|   +-- wb_switch_control
+|   +-- wb_switch_fabric
+|   |
+|   +-- S0 -> instruction_memory_wbs
+|   |         `-- wb_memory
+|   |
+|   +-- S1 -> data_memory_wbs
+|   |         `-- wb_memory
+|   |
+|   +-- S2 -> program_loader_wb       Wishbone Slave S2
+|   |             `-- M1              Wishbone Master M1
+|   |
+|   `-- S3 -> debug_controller_wbs
+|
++-- cpu_core
+|   +-- program_counter
+|   +-- control_unit
+|   +-- imm_gen
+|   +-- register_file
+|   +-- alu
+|   +-- branch_unit
+|   `-- load_store_unit
+|
+`-- rv32_display
+
+Wishbone fijo
+-------------
+Masters:
+  M0 UART0
+  M1 Program Loader
+  M2 reservado para CPU multiciclo
+  M3 reservado para CPU multiciclo
+
+Canales:
+  CH0 dinamico
+  CH1 dinamico
+
+Slaves:
+  S0 IMEM
+  S1 DMEM
+  S2 Loader
+  S3 Debugger
+
+Cada canal registra MASTER_SEL y SLAVE_SEL. Ningun canal pertenece
+permanentemente a un Master.
+
+Flujo host -> SoC
+-----------------
+Python
+  |
+  v
+UART0 serial
+  |
+  v
+uart0_wbm / RX FIFO / parser
+  |
+  v
+M0
+  |
+  v
+wb_crossbar
+  |---- S0 IMEM
+  |---- S1 DMEM
+  |---- S2 Loader ----> M1 ----> wb_crossbar ----> S0/S1
+  `---- S3 Debugger

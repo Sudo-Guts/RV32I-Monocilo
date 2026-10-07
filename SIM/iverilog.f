@@ -1,0 +1,32 @@
+# Generado por GUTS; Espacio rg actualiza esta lista.
+# Rutas relativas a la raíz del proyecto; un archivo por línea.
+RTL/bus/wb_address_decoder.v
+RTL/bus/wb_crossbar.v
+RTL/bus/wb_switch_control.v
+RTL/bus/wb_switch_fabric.v
+RTL/core/alu.v
+RTL/core/branch_unit.v
+RTL/core/control_unit.v
+RTL/core/cpu_core.v
+RTL/core/imm_gen.v
+RTL/core/load_store_memory.v
+RTL/core/load_store_unit.v
+RTL/core/program_counter.v
+RTL/core/register_file.v
+RTL/fpga/clock_manager.v
+RTL/fpga/rv32_display.v
+RTL/memory/data_memory_wbs.v
+RTL/memory/instruction_memory_wbs.v
+RTL/peripherals/debug_controller_wbs.v
+RTL/peripherals/program_loader_wb.v
+RTL/peripherals/uart.v
+RTL/peripherals/uart0_wbm.v
+RTL/peripherals/uart_baudrate.v
+RTL/peripherals/uart_rx.v
+RTL/peripherals/uart_tx.v
+RTL/peripherals/wb_memory.v
+RTL/soc/cpu_soc.v
+SIM/models/xilinx/BUFG.v
+SIM/models/xilinx/DCM_SP.v
+SIM/models/xilinx/IBUFG.v
+SIM/tb/wb_address_decoder_tb.v

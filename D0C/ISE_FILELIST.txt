@@ -1,0 +1,37 @@
+Top Module: cpu_soc
+
+Agregar al proyecto:
+  cpu_soc.v
+  clock_manager.v
+  uart0_wbm.v
+  uart.v
+  uart_baudrate.v
+  uart_rx.v
+  uart_tx.v
+  wb_address_decoder.v
+  wb_switch_control.v
+  wb_switch_fabric.v
+  wb_crossbar.v
+  program_loader_wb.v
+  debug_controller_wbs.v
+  instruction_memory_wbs.v
+  data_memory_wbs.v
+  wb_memory.v
+  cpu_core.v
+  program_counter.v
+  control_unit.v
+  imm_gen.v
+  register_file.v
+  alu.v
+  branch_unit.v
+  load_store_unit.v
+  rv32_display.v
+
+No agregar:
+  crossbar_wb.v
+  cpu.v
+  uart_wb_master.v
+  instruction_memory.v
+  data_memory.v
+  debug_controller.v
+  program_loader.v

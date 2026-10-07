@@ -1,0 +1,1548 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.02 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.02 secs
+ 
+--> 
+Reading design: cpu_soc.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "cpu_soc.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "cpu_soc"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : cpu_soc
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/uart_tx.v" into library work
+Parsing module <uart_tx>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/uart_rx.v" into library work
+Parsing module <uart_rx>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/uart_baudrate.v" into library work
+Parsing module <uart_baudrate>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/wb_memory.v" into library work
+Parsing module <wb_memory>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/uart.v" into library work
+Parsing module <uart>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/register_file.v" into library work
+Parsing module <register_file>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/program_counter.v" into library work
+Parsing module <program_counter>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/load_store_unit.v" into library work
+Parsing module <load_store_unit>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/imm_gen.v" into library work
+Parsing module <imm_gen>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/control_unit.v" into library work
+Parsing module <control_unit>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/branch_unit.v" into library work
+Parsing module <branch_unit>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/alu.v" into library work
+Parsing module <alu>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/uart0_wbm.v" into library work
+Parsing module <uart0_wbm>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/program_loader_wb.v" into library work
+Parsing module <program_loader_wb>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/peripherals/debug_controller_wbs.v" into library work
+Parsing module <debug_controller_wbs>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/memory/instruction_memory_wbs.v" into library work
+Parsing module <instruction_memory_wbs>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/memory/data_memory_wbs.v" into library work
+Parsing module <data_memory_wbs>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/fpga/rv32_display.v" into library work
+Parsing module <rv32_display>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/fpga/clock_manager.v" into library work
+Parsing module <clock_manager>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/core/cpu_core.v" into library work
+Parsing module <cpu_core>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/bus/crossbar_wb.v" into library work
+Parsing module <crossbar_wb>.
+Analyzing Verilog file "/home/guts/RV32I-Monociclo/RTL/soc/cpu_soc.v" into library work
+Parsing module <cpu_soc>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <cpu_soc>.
+
+Elaborating module <clock_manager(CLK_DIVIDE=32'sb010)>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <BUFG>.
+
+Elaborating module <DCM_SP(CLKDV_DIVIDE=2.0,CLKIN_PERIOD=10.0,CLK_FEEDBACK="1X",DESKEW_ADJUST="SYSTEM_SYNCHRONOUS",DUTY_CYCLE_CORRECTION="TRUE",STARTUP_WAIT="FALSE")>.
+
+Elaborating module <uart0_wbm(CLK_FREQ=32'sb010111110101111000010000000,BAUD_RATE=57600,OVERSAMPLE=16,FIFO_ADDR_WIDTH=6,RX_TIMEOUT_CYCLES=32'sb010011000100101101000000)>.
+
+Elaborating module <uart(CLK_FREQ=32'sb010111110101111000010000000,BAUD_RATE=57600,OVERSAMPLE=16)>.
+
+Elaborating module <uart_baudrate(CLK_FREQ=32'sb010111110101111000010000000,BAUD_RATE=57600,OVERSAMPLE=16)>.
+
+Elaborating module <uart_rx(OVERSAMPLE=16)>.
+
+Elaborating module <uart_tx>.
+
+Elaborating module <crossbar_wb(TIMEOUT_CYCLES=1024)>.
+
+Elaborating module <program_loader_wb>.
+
+Elaborating module <debug_controller_wbs(IMEM_WORD_ADDR_WIDTH=9,DMEM_WORD_ADDR_WIDTH=8)>.
+
+Elaborating module <cpu_core>.
+
+Elaborating module <program_counter>.
+
+Elaborating module <imm_gen>.
+
+Elaborating module <register_file>.
+
+Elaborating module <control_unit>.
+
+Elaborating module <alu>.
+
+Elaborating module <branch_unit>.
+
+Elaborating module <load_store_unit>.
+
+Elaborating module <instruction_memory_wbs(WORD_ADDR_WIDTH=9,WAIT_CYCLES=0)>.
+
+Elaborating module <wb_memory(WORD_ADDR_WIDTH=9,BASE_ADDR=32'b0,CPU_INVALID_DATA=32'b010011,WAIT_CYCLES=0)>.
+
+Elaborating module <data_memory_wbs(WORD_ADDR_WIDTH=8,WAIT_CYCLES=0)>.
+
+Elaborating module <wb_memory(WORD_ADDR_WIDTH=8,BASE_ADDR=32'b010000000000000000,CPU_INVALID_DATA=32'b0,WAIT_CYCLES=0)>.
+
+Elaborating module <rv32_display(CLK_FREQ=32'sb010111110101111000010000000,SCAN_HZ=1000)>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <cpu_soc>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/soc/cpu_soc.v".
+        CLK_FREQ = 50000000
+        BAUD_RATE = 57600
+        OVERSAMPLE = 16
+        UART_FIFO_ADDR_WIDTH = 6
+        IMEM_WORD_ADDR_WIDTH = 9
+        DMEM_WORD_ADDR_WIDTH = 8
+        WB_TIMEOUT_CYCLES = 1024
+        RX_TIMEOUT_CYCLES = 5000000
+        MEMORY_WAIT_CYCLES = 0
+    Set property "ASYNC_REG = TRUE" for signal <reset_sync>.
+INFO:Xst:3210 - "/home/guts/RV32I-Monociclo/RTL/soc/cpu_soc.v" line 364: Output port <CPU_RUNNING_O> of the instance <debugger_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/guts/RV32I-Monociclo/RTL/soc/cpu_soc.v" line 397: Output port <dbg_mem_addr_o> of the instance <core_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/guts/RV32I-Monociclo/RTL/soc/cpu_soc.v" line 397: Output port <dbg_mem_load_o> of the instance <core_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/guts/RV32I-Monociclo/RTL/soc/cpu_soc.v" line 397: Output port <dbg_mem_store_o> of the instance <core_inst> is unconnected or connected to loadless signal.
+    Found 2-bit register for signal <reset_sync>.
+INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal n0056 may hinder XST clustering optimizations.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <cpu_soc> synthesized.
+
+Synthesizing Unit <clock_manager>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/fpga/clock_manager.v".
+        CLK_DIVIDE = 2
+    Summary:
+	no macro.
+Unit <clock_manager> synthesized.
+
+Synthesizing Unit <uart0_wbm>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/uart0_wbm.v".
+        CLK_FREQ = 50000000
+        BAUD_RATE = 57600
+        OVERSAMPLE = 16
+        FIFO_ADDR_WIDTH = 6
+        RX_TIMEOUT_CYCLES = 5000000
+    Found 64x8-bit dual-port RAM <Mram_rx_fifo_mem> for signal <rx_fifo_mem>.
+    Found 6-bit register for signal <rx_fifo_rd_ptr>.
+    Found 7-bit register for signal <rx_fifo_count>.
+    Found 1-bit register for signal <rx_overflow>.
+    Found 4-bit register for signal <state>.
+    Found 4-bit register for signal <index>.
+    Found 4-bit register for signal <tx_index>.
+    Found 8-bit register for signal <sequence_id>.
+    Found 8-bit register for signal <operation>.
+    Found 8-bit register for signal <selection>.
+    Found 8-bit register for signal <crc_low>.
+    Found 8-bit register for signal <status>.
+    Found 16-bit register for signal <rx_crc>.
+    Found 16-bit register for signal <tx_crc>.
+    Found 32-bit register for signal <response_data>.
+    Found 32-bit register for signal <idle_count>.
+    Found 32-bit register for signal <ADR_O>.
+    Found 32-bit register for signal <DAT_O>.
+    Found 8-bit register for signal <tx_data>.
+    Found 1-bit register for signal <tx_start>.
+    Found 1-bit register for signal <overflow_pending>.
+    Found 6-bit register for signal <rx_fifo_wr_ptr>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 145                                            |
+    | Inputs             | 17                                             |
+    | Outputs            | 11                                             |
+    | Clock              | CLK_I (rising_edge)                            |
+    | Reset              | RST_I (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 7-bit subtractor for signal <rx_fifo_count[6]_GND_6_o_sub_11_OUT> created at line 222.
+    Found 6-bit adder for signal <rx_fifo_wr_ptr[5]_GND_6_o_add_5_OUT> created at line 214.
+    Found 6-bit adder for signal <rx_fifo_rd_ptr[5]_GND_6_o_add_7_OUT> created at line 218.
+    Found 7-bit adder for signal <rx_fifo_count[6]_GND_6_o_add_9_OUT> created at line 221.
+    Found 32-bit adder for signal <idle_count[31]_GND_6_o_add_33_OUT> created at line 380.
+    Found 4-bit adder for signal <index[3]_GND_6_o_add_79_OUT> created at line 434.
+    Found 4-bit adder for signal <tx_index[3]_GND_6_o_add_123_OUT> created at line 471.
+    Found 8-bit 12-to-1 multiplexer for signal <tx_byte> created at line 324.
+    Found 32-bit comparator greater for signal <idle_count[31]_GND_6_o_LessThan_33_o> created at line 379
+    Found 4-bit comparator greater for signal <n0067> created at line 406
+    Found 16-bit comparator equal for signal <n0087> created at line 424
+    Found 8-bit comparator greater for signal <GND_6_o_operation[7]_LessThan_92_o> created at line 439
+    Summary:
+	inferred   1 RAM(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred 238 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred  39 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <uart0_wbm> synthesized.
+
+Synthesizing Unit <uart>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/uart.v".
+        CLK_FREQ = 50000000
+        BAUD_RATE = 57600
+        OVERSAMPLE = 16
+    Summary:
+	no macro.
+Unit <uart> synthesized.
+
+Synthesizing Unit <uart_baudrate>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/uart_baudrate.v".
+        CLK_FREQ = 50000000
+        BAUD_RATE = 57600
+        OVERSAMPLE = 16
+    Found 26-bit register for signal <sample_phase>.
+    Found 1-bit register for signal <baud_tick_o>.
+    Found 1-bit register for signal <sample_tick_o>.
+    Found 26-bit register for signal <baud_phase>.
+    Found 27-bit subtractor for signal <baud_sum[26]_GND_8_o_sub_4_OUT> created at line 85.
+    Found 27-bit subtractor for signal <sample_sum[26]_GND_8_o_sub_7_OUT> created at line 86.
+    Found 27-bit adder for signal <n0028> created at line 83.
+    Found 27-bit adder for signal <n0030> created at line 84.
+    Found 27-bit comparator lessequal for signal <n0006> created at line 102
+    Found 27-bit comparator lessequal for signal <n0008> created at line 103
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <uart_baudrate> synthesized.
+
+Synthesizing Unit <uart_rx>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/uart_rx.v".
+        OVERSAMPLE = 16
+    Found 1-bit register for signal <rx_sync>.
+    Found 3-bit register for signal <state>.
+    Found 4-bit register for signal <sample_count>.
+    Found 3-bit register for signal <bit_index>.
+    Found 8-bit register for signal <rx_buffer>.
+    Found 8-bit register for signal <rx_data_o>.
+    Found 1-bit register for signal <rx_valid_o>.
+    Found 1-bit register for signal <rx_meta>.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 14                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk_i (rising_edge)                            |
+    | Reset              | rst_i (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit adder for signal <sample_count[3]_GND_9_o_add_8_OUT> created at line 160.
+    Found 3-bit adder for signal <bit_index[2]_GND_9_o_add_15_OUT> created at line 175.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  26 D-type flip-flop(s).
+	inferred  17 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <uart_rx> synthesized.
+
+Synthesizing Unit <uart_tx>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/uart_tx.v".
+    Found 1-bit register for signal <tx_o>.
+    Found 1-bit register for signal <tx_busy_o>.
+    Found 8-bit register for signal <tx_buffer>.
+    Found 3-bit register for signal <bit_index>.
+    Found 3-bit register for signal <state>.
+    Found finite state machine <FSM_2> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk_i (rising_edge)                            |
+    | Reset              | rst_i (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit adder for signal <bit_index[2]_GND_10_o_add_8_OUT> created at line 134.
+    Found 1-bit 8-to-1 multiplexer for signal <bit_index[2]_tx_buffer[7]_Mux_9_o> created at line 134.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  13 D-type flip-flop(s).
+	inferred  14 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <uart_tx> synthesized.
+
+Synthesizing Unit <crossbar_wb>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/bus/crossbar_wb.v".
+        TIMEOUT_CYCLES = 1024
+    Found 1-bit register for signal <owned<2>>.
+    Found 1-bit register for signal <owned<1>>.
+    Found 1-bit register for signal <owned<0>>.
+    Found 1-bit register for signal <owner<3>>.
+    Found 1-bit register for signal <owner<2>>.
+    Found 1-bit register for signal <owner<1>>.
+    Found 1-bit register for signal <owner<0>>.
+    Found 1-bit register for signal <prefer<3>>.
+    Found 1-bit register for signal <prefer<2>>.
+    Found 1-bit register for signal <prefer<1>>.
+    Found 1-bit register for signal <prefer<0>>.
+    Found 1-bit register for signal <finished<1>>.
+    Found 1-bit register for signal <finished<0>>.
+    Found 32-bit register for signal <age0>.
+    Found 32-bit register for signal <age1>.
+    Found 1-bit register for signal <owned<3>>.
+    Found 7-bit subtractor for signal <n1709> created at line 134.
+    Found 4-bit subtractor for signal <n1717> created at line 136.
+    Found 7-bit subtractor for signal <n1721> created at line 134.
+    Found 4-bit subtractor for signal <n1729> created at line 136.
+    Found 7-bit subtractor for signal <n1733> created at line 134.
+    Found 4-bit subtractor for signal <n1741> created at line 136.
+    Found 7-bit subtractor for signal <n1745> created at line 134.
+    Found 4-bit subtractor for signal <n1753> created at line 136.
+    Found 32-bit adder for signal <age0[31]_GND_11_o_add_475_OUT> created at line 205.
+    Found 32-bit adder for signal <age1[31]_GND_11_o_add_479_OUT> created at line 212.
+    Found 96-bit shifter logical right for signal <n1711> created at line 134
+    Found 96-bit shifter logical right for signal <n1715> created at line 135
+    Found 12-bit shifter logical right for signal <n1719> created at line 136
+    Found 96-bit shifter logical right for signal <n1723> created at line 134
+    Found 96-bit shifter logical right for signal <n1727> created at line 135
+    Found 12-bit shifter logical right for signal <n1731> created at line 136
+    Found 96-bit shifter logical right for signal <n1735> created at line 134
+    Found 96-bit shifter logical right for signal <n1739> created at line 135
+    Found 12-bit shifter logical right for signal <n1743> created at line 136
+    Found 96-bit shifter logical right for signal <n1747> created at line 134
+    Found 96-bit shifter logical right for signal <n1751> created at line 135
+    Found 12-bit shifter logical right for signal <n1755> created at line 136
+    Found 96-bit shifter logical left for signal <n1710> created at line 134
+    Found 96-bit shifter logical left for signal <n1714> created at line 135
+    Found 12-bit shifter logical left for signal <n1718> created at line 136
+    Found 96-bit shifter logical left for signal <n1722> created at line 134
+    Found 96-bit shifter logical left for signal <n1726> created at line 135
+    Found 12-bit shifter logical left for signal <n1730> created at line 136
+    Found 96-bit shifter logical left for signal <n1734> created at line 134
+    Found 96-bit shifter logical left for signal <n1738> created at line 135
+    Found 12-bit shifter logical left for signal <n1742> created at line 136
+    Found 96-bit shifter logical left for signal <n1746> created at line 134
+    Found 96-bit shifter logical left for signal <n1750> created at line 135
+    Found 12-bit shifter logical left for signal <n1754> created at line 136
+    Found 32-bit comparator lessequal for signal <n0016> created at line 110
+    Found 32-bit comparator lessequal for signal <n0018> created at line 110
+    Found 32-bit comparator lessequal for signal <n0405> created at line 165
+    Found 32-bit comparator lessequal for signal <n0407> created at line 165
+    Found 32-bit comparator lessequal for signal <n0521> created at line 165
+    Found 32-bit comparator lessequal for signal <n0523> created at line 165
+    Found 32-bit comparator lessequal for signal <n0637> created at line 165
+    Found 32-bit comparator lessequal for signal <n0639> created at line 165
+    Found 32-bit comparator lessequal for signal <n0753> created at line 165
+    Found 32-bit comparator lessequal for signal <n0755> created at line 165
+    Summary:
+	inferred  10 Adder/Subtractor(s).
+	inferred  78 D-type flip-flop(s).
+	inferred  10 Comparator(s).
+	inferred 896 Multiplexer(s).
+	inferred  24 Combinational logic shifter(s).
+Unit <crossbar_wb> synthesized.
+
+Synthesizing Unit <program_loader_wb>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/program_loader_wb.v".
+    Found 32-bit register for signal <write_data>.
+    Found 4-bit register for signal <byte_sel>.
+    Found 32-bit register for signal <read_data>.
+    Found 32-bit register for signal <error_code>.
+    Found 1-bit register for signal <done>.
+    Found 1-bit register for signal <failed>.
+    Found 1-bit register for signal <served>.
+    Found 1-bit register for signal <BUSY_O>.
+    Found 32-bit register for signal <M_ADR_O>.
+    Found 32-bit register for signal <M_DAT_O>.
+    Found 4-bit register for signal <M_SEL_O>.
+    Found 1-bit register for signal <M_WE_O>.
+    Found 32-bit register for signal <target_addr>.
+    Found 32-bit 8-to-1 multiplexer for signal <_n0245> created at line 184.
+    Summary:
+	inferred 205 D-type flip-flop(s).
+	inferred  11 Multiplexer(s).
+Unit <program_loader_wb> synthesized.
+
+Synthesizing Unit <debug_controller_wbs>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/debug_controller_wbs.v".
+        IMEM_WORD_ADDR_WIDTH = 9
+        DMEM_WORD_ADDR_WIDTH = 8
+    Found 1-bit register for signal <stepping>.
+    Found 1-bit register for signal <resetting>.
+    Found 1-bit register for signal <served>.
+    Found 5-bit register for signal <CPU_DBG_REG_ADDR_O>.
+    Found 32-bit register for signal <last_pc>.
+    Found 32-bit register for signal <last_instr>.
+    Found 32-bit register for signal <last_wb_data>.
+    Found 2-bit register for signal <last_fault>.
+    Found 1-bit register for signal <last_valid>.
+    Found 1-bit register for signal <running>.
+    Found 32-bit comparator greater for signal <DAT_I[31]_GND_13_o_LessThan_8_o> created at line 190
+    Summary:
+	inferred 108 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred  13 Multiplexer(s).
+Unit <debug_controller_wbs> synthesized.
+
+Synthesizing Unit <cpu_core>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/cpu_core.v".
+    Found 32-bit adder for signal <pc_plus> created at line 169.
+    Found 32-bit 4-to-1 multiplexer for signal <rd_data> created at line 274.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   6 Multiplexer(s).
+Unit <cpu_core> synthesized.
+
+Synthesizing Unit <program_counter>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/program_counter.v".
+    Found 32-bit register for signal <pc_o>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <program_counter> synthesized.
+
+Synthesizing Unit <imm_gen>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/imm_gen.v".
+    Summary:
+	no macro.
+Unit <imm_gen> synthesized.
+
+Synthesizing Unit <register_file>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/register_file.v".
+    Found 32x32-bit dual-port RAM <Mram_registers> for signal <registers>.
+    Summary:
+	inferred   3 RAM(s).
+	inferred   3 Multiplexer(s).
+Unit <register_file> synthesized.
+
+Synthesizing Unit <control_unit>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/control_unit.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <control_unit> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/alu.v".
+    Found 33-bit adder for signal <n0061> created at line 76.
+    Found 33-bit adder for signal <BUS_0001_GND_19_o_add_3_OUT> created at line 76.
+    Found 33-bit adder for signal <n0055> created at line 76.
+    Found 32-bit shifter logical left for signal <a_i[31]_b_i[4]_shift_left_14_OUT> created at line 113
+    Found 32-bit shifter logical right for signal <a_i[31]_b_i[4]_shift_right_15_OUT> created at line 114
+    Found 32-bit shifter arithmetic right for signal <a_i[31]_b_i[4]_shift_right_16_OUT> created at line 115
+    Found 32-bit 13-to-1 multiplexer for signal <result_o> created at line 90.
+    Found 32-bit comparator greater for signal <b_i[31]_a_i[31]_LessThan_11_o> created at line 110
+    Found 32-bit comparator greater for signal <a_i[31]_b_i[31]_LessThan_13_o> created at line 111
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   5 Multiplexer(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <branch_unit>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/branch_unit.v".
+    Found 1-bit 7-to-1 multiplexer for signal <funct3_i[2]_carry_i_Mux_0_o> created at line 61.
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <branch_unit> synthesized.
+
+Synthesizing Unit <load_store_unit>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/core/load_store_unit.v".
+    Found 32-bit shifter logical right for signal <shifted> created at line 70
+    Found 32-bit shifter logical left for signal <GND_21_o_addr_low_i[1]_shift_left_2_OUT> created at line 82
+    Found 32-bit shifter logical left for signal <GND_21_o_addr_low_i[1]_shift_left_6_OUT> created at line 88
+    Found 4-bit shifter logical left for signal <GND_21_o_addr_low_i[1]_shift_left_12_OUT> created at line 98
+    Found 4-bit shifter logical left for signal <GND_21_o_addr_low_i[1]_shift_left_15_OUT> created at line 104
+    Found 4-bit 7-to-1 multiplexer for signal <funct3_i[2]_GND_21_o_wide_mux_20_OUT> created at line 78.
+    Found 32-bit 7-to-1 multiplexer for signal <funct3_i[2]_GND_21_o_wide_mux_21_OUT> created at line 78.
+    Summary:
+	inferred  39 Multiplexer(s).
+	inferred   5 Combinational logic shifter(s).
+Unit <load_store_unit> synthesized.
+
+Synthesizing Unit <instruction_memory_wbs>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/memory/instruction_memory_wbs.v".
+        WORD_ADDR_WIDTH = 9
+        WAIT_CYCLES = 0
+    Summary:
+	no macro.
+Unit <instruction_memory_wbs> synthesized.
+
+Synthesizing Unit <wb_memory_1>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/wb_memory.v".
+        WORD_ADDR_WIDTH = 9
+        BASE_ADDR = 32'b00000000000000000000000000000000
+        CPU_INVALID_DATA = 32'b00000000000000000000000000010011
+        WAIT_CYCLES = 0
+    Set property "ram_style = distributed" for signal <mem_b0>.
+    Set property "ram_style = distributed" for signal <mem_b1>.
+    Set property "ram_style = distributed" for signal <mem_b2>.
+    Set property "ram_style = distributed" for signal <mem_b3>.
+    Found 1-bit register for signal <served>.
+    Found 512x8-bit dual-port RAM <Mram_mem_b3> for signal <mem_b3>.
+    Found 512x8-bit dual-port RAM <Mram_mem_b2> for signal <mem_b2>.
+    Found 512x8-bit dual-port RAM <Mram_mem_b1> for signal <mem_b1>.
+    Found 512x8-bit dual-port RAM <Mram_mem_b0> for signal <mem_b0>.
+    Found 32-bit comparator greater for signal <cpu_valid> created at line 124
+    Found 32-bit comparator greater for signal <offset[31]_GND_23_o_LessThan_5_o> created at line 126
+    Summary:
+	inferred   4 RAM(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   6 Multiplexer(s).
+Unit <wb_memory_1> synthesized.
+
+Synthesizing Unit <data_memory_wbs>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/memory/data_memory_wbs.v".
+        WORD_ADDR_WIDTH = 8
+        WAIT_CYCLES = 0
+    Summary:
+	no macro.
+Unit <data_memory_wbs> synthesized.
+
+Synthesizing Unit <wb_memory_2>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/peripherals/wb_memory.v".
+        WORD_ADDR_WIDTH = 8
+        BASE_ADDR = 32'b00000000000000010000000000000000
+        CPU_INVALID_DATA = 32'b00000000000000000000000000000000
+        WAIT_CYCLES = 0
+    Set property "ram_style = distributed" for signal <mem_b0>.
+    Set property "ram_style = distributed" for signal <mem_b1>.
+    Set property "ram_style = distributed" for signal <mem_b2>.
+    Set property "ram_style = distributed" for signal <mem_b3>.
+    Found 1-bit register for signal <served>.
+    Found 32-bit subtractor for signal <offset> created at line 117.
+    Found 256x8-bit quad-port RAM <Mram_mem_b3> for signal <mem_b3>.
+    Found 256x8-bit quad-port RAM <Mram_mem_b2> for signal <mem_b2>.
+    Found 256x8-bit quad-port RAM <Mram_mem_b1> for signal <mem_b1>.
+    Found 256x8-bit quad-port RAM <Mram_mem_b0> for signal <mem_b0>.
+    Found 32-bit comparator greater for signal <cpu_valid> created at line 124
+    Found 32-bit comparator lessequal for signal <n0004> created at line 125
+    Found 32-bit comparator greater for signal <offset[31]_GND_25_o_LessThan_6_o> created at line 126
+    Summary:
+	inferred   4 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  12 Multiplexer(s).
+Unit <wb_memory_2> synthesized.
+
+Synthesizing Unit <rv32_display>.
+    Related source file is "/home/guts/RV32I-Monociclo/RTL/fpga/rv32_display.v".
+        CLK_FREQ = 50000000
+        SCAN_HZ = 1000
+    Found 2-bit register for signal <digit_select>.
+    Found 16-bit register for signal <scan_count>.
+    Found 2-bit adder for signal <digit_select[1]_GND_26_o_add_2_OUT> created at line 107.
+    Found 16-bit adder for signal <scan_count[15]_GND_26_o_add_3_OUT> created at line 109.
+    Found 4x11-bit Read Only RAM for signal <_n0038>
+    Summary:
+	inferred   1 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <rv32_display> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 13
+ 256x8-bit quad-port RAM                               : 4
+ 32x32-bit dual-port RAM                               : 3
+ 4x11-bit single-port Read Only RAM                    : 1
+ 512x8-bit dual-port RAM                               : 4
+ 64x8-bit dual-port RAM                                : 1
+# Adders/Subtractors                                   : 30
+ 16-bit adder                                          : 1
+ 2-bit adder                                           : 1
+ 27-bit adder                                          : 2
+ 27-bit subtractor                                     : 2
+ 3-bit adder                                           : 2
+ 32-bit adder                                          : 4
+ 32-bit subtractor                                     : 1
+ 33-bit adder                                          : 2
+ 4-bit adder                                           : 3
+ 4-bit subtractor                                      : 4
+ 6-bit adder                                           : 2
+ 7-bit adder                                           : 1
+ 7-bit subtractor                                      : 5
+# Registers                                            : 80
+ 1-bit register                                        : 36
+ 16-bit register                                       : 3
+ 2-bit register                                        : 3
+ 26-bit register                                       : 2
+ 3-bit register                                        : 2
+ 32-bit register                                       : 16
+ 4-bit register                                        : 5
+ 5-bit register                                        : 1
+ 6-bit register                                        : 2
+ 7-bit register                                        : 1
+ 8-bit register                                        : 9
+# Comparators                                          : 24
+ 16-bit comparator equal                               : 1
+ 27-bit comparator lessequal                           : 2
+ 32-bit comparator greater                             : 8
+ 32-bit comparator lessequal                           : 11
+ 4-bit comparator greater                              : 1
+ 8-bit comparator greater                              : 1
+# Multiplexers                                         : 1068
+ 1-bit 2-to-1 multiplexer                              : 568
+ 1-bit 7-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 8
+ 11-bit 2-to-1 multiplexer                             : 8
+ 12-bit 2-to-1 multiplexer                             : 9
+ 128-bit 2-to-1 multiplexer                            : 2
+ 13-bit 2-to-1 multiplexer                             : 8
+ 14-bit 2-to-1 multiplexer                             : 8
+ 15-bit 2-to-1 multiplexer                             : 8
+ 16-bit 2-to-1 multiplexer                             : 28
+ 17-bit 2-to-1 multiplexer                             : 8
+ 18-bit 2-to-1 multiplexer                             : 8
+ 19-bit 2-to-1 multiplexer                             : 8
+ 2-bit 2-to-1 multiplexer                              : 14
+ 20-bit 2-to-1 multiplexer                             : 8
+ 21-bit 2-to-1 multiplexer                             : 8
+ 22-bit 2-to-1 multiplexer                             : 8
+ 23-bit 2-to-1 multiplexer                             : 8
+ 24-bit 2-to-1 multiplexer                             : 8
+ 25-bit 2-to-1 multiplexer                             : 8
+ 26-bit 2-to-1 multiplexer                             : 8
+ 27-bit 2-to-1 multiplexer                             : 10
+ 28-bit 2-to-1 multiplexer                             : 8
+ 29-bit 2-to-1 multiplexer                             : 8
+ 3-bit 2-to-1 multiplexer                              : 17
+ 30-bit 2-to-1 multiplexer                             : 8
+ 31-bit 2-to-1 multiplexer                             : 7
+ 32-bit 13-to-1 multiplexer                            : 1
+ 32-bit 2-to-1 multiplexer                             : 186
+ 32-bit 4-to-1 multiplexer                             : 1
+ 32-bit 7-to-1 multiplexer                             : 1
+ 32-bit 8-to-1 multiplexer                             : 1
+ 33-bit 2-to-1 multiplexer                             : 2
+ 4-bit 2-to-1 multiplexer                              : 23
+ 4-bit 7-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 8
+ 6-bit 2-to-1 multiplexer                              : 8
+ 64-bit 2-to-1 multiplexer                             : 5
+ 7-bit 2-to-1 multiplexer                              : 8
+ 8-bit 12-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 11
+ 9-bit 2-to-1 multiplexer                              : 8
+ 96-bit 2-to-1 multiplexer                             : 2
+# Logic shifters                                       : 32
+ 12-bit shifter logical left                           : 4
+ 12-bit shifter logical right                          : 4
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 3
+ 32-bit shifter logical right                          : 2
+ 4-bit shifter logical left                            : 2
+ 96-bit shifter logical left                           : 8
+ 96-bit shifter logical right                          : 8
+# FSMs                                                 : 3
+# Xors                                                 : 20
+ 1-bit xor2                                            : 1
+ 16-bit xor2                                           : 18
+ 32-bit xor2                                           : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+WARNING:Xst:638 - in unit cpu_soc Conflict on KEEP property on signal reset_sync<0> and n0056<1> n0056<1> signal will be lost.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <crossbar_wb>.
+The following registers are absorbed into counter <age0>: 1 register on signal <age0>.
+The following registers are absorbed into counter <age1>: 1 register on signal <age1>.
+Unit <crossbar_wb> synthesized (advanced).
+
+Synthesizing (advanced) Unit <register_file>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <waddr_i>       |          |
+    |     diA            | connected to signal <wdata_i>       |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <raddr1_i>      |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <waddr_i>       |          |
+    |     diA            | connected to signal <wdata_i>       |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <raddr2_i>      |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers2> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <waddr_i>       |          |
+    |     diA            | connected to signal <wdata_i>       |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <dbg_raddr_i>   |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <register_file> synthesized (advanced).
+
+Synthesizing (advanced) Unit <rv32_display>.
+The following registers are absorbed into counter <scan_count>: 1 register on signal <scan_count>.
+The following registers are absorbed into counter <digit_select>: 1 register on signal <digit_select>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0038> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 11-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <digit_select>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <rv32_display> synthesized (advanced).
+
+Synthesizing (advanced) Unit <uart0_wbm>.
+The following registers are absorbed into counter <index>: 1 register on signal <index>.
+The following registers are absorbed into counter <rx_fifo_rd_ptr>: 1 register on signal <rx_fifo_rd_ptr>.
+The following registers are absorbed into counter <rx_fifo_wr_ptr>: 1 register on signal <rx_fifo_wr_ptr>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_rx_fifo_mem> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 8-bit                     |          |
+    |     clkA           | connected to signal <CLK_I>         | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <rx_fifo_wr_ptr> |          |
+    |     diA            | connected to signal <rx_byte_data>  |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 64-word x 8-bit                     |          |
+    |     addrB          | connected to signal <rx_fifo_rd_ptr> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <uart0_wbm> synthesized (advanced).
+
+Synthesizing (advanced) Unit <wb_memory_1>.
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b3>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<3>_0_0> | high     |
+    |     addrA          | connected to signal <offset<10:2>>  |          |
+    |     diA            | connected to signal <write_data<31:24>> |          |
+    |     doA            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     addrB          | connected to signal <cpu_addr_i<10:2>> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b2>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<2>_0_0> | high     |
+    |     addrA          | connected to signal <offset<10:2>>  |          |
+    |     diA            | connected to signal <write_data<23:16>> |          |
+    |     doA            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     addrB          | connected to signal <cpu_addr_i<10:2>> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b1>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<1>_0_0> | high     |
+    |     addrA          | connected to signal <offset<10:2>>  |          |
+    |     diA            | connected to signal <write_data<15:8>> |          |
+    |     doA            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     addrB          | connected to signal <cpu_addr_i<10:2>> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b0>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<0>_0_0> | high     |
+    |     addrA          | connected to signal <offset<10:2>>  |          |
+    |     diA            | connected to signal <write_data<7:0>> |          |
+    |     doA            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 512-word x 8-bit                    |          |
+    |     addrB          | connected to signal <cpu_addr_i<10:2>> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <wb_memory_1> synthesized (advanced).
+
+Synthesizing (advanced) Unit <wb_memory_2>.
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b3>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<3>_0_0> | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data<31:24>> |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrB          | connected to signal <offset<9:2>>   |          |
+    |     doB            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port C                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrC          | connected to signal <cpu_addr_i<9:2>> |          |
+    |     doC            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b2>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<2>_0_0> | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data<23:16>> |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrB          | connected to signal <offset<9:2>>   |          |
+    |     doB            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port C                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrC          | connected to signal <cpu_addr_i<9:2>> |          |
+    |     doC            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b1>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<1>_0_0> | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data<15:8>> |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrB          | connected to signal <offset<9:2>>   |          |
+    |     doB            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port C                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrC          | connected to signal <cpu_addr_i<9:2>> |          |
+    |     doC            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3216 - HDL ADVISOR - LUT implementation is currently selected for the RAM <Mram_mem_b0>. If you want the register to be removed and the RAM to be implemented as block RAM, please change the RAM implementation style accordingly.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     clkA           | connected to signal <clk_i>         | rise     |
+    |     weA            | connected to signal <write_sel<0>_0_0> | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data<7:0>> |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrB          | connected to signal <offset<9:2>>   |          |
+    |     doB            | connected to signal <dat_o>         |          |
+    -----------------------------------------------------------------------
+    | Port C                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     addrC          | connected to signal <cpu_addr_i<9:2>> |          |
+    |     doC            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <wb_memory_2> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 13
+ 256x8-bit quad-port distributed RAM                   : 4
+ 32x32-bit dual-port distributed RAM                   : 3
+ 4x11-bit single-port distributed Read Only RAM        : 1
+ 512x8-bit dual-port distributed RAM                   : 4
+ 64x8-bit dual-port distributed RAM                    : 1
+# Adders/Subtractors                                   : 23
+ 27-bit adder                                          : 2
+ 27-bit subtractor                                     : 2
+ 3-bit adder                                           : 2
+ 32-bit adder                                          : 2
+ 32-bit subtractor                                     : 1
+ 33-bit adder                                          : 2
+ 4-bit adder                                           : 2
+ 4-bit subtractor                                      : 4
+ 7-bit adder                                           : 1
+ 7-bit subtractor                                      : 5
+# Counters                                             : 7
+ 16-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+ 32-bit up counter                                     : 2
+ 4-bit up counter                                      : 1
+ 6-bit up counter                                      : 2
+# Registers                                            : 678
+ Flip-Flops                                            : 678
+# Comparators                                          : 24
+ 16-bit comparator equal                               : 1
+ 27-bit comparator lessequal                           : 2
+ 32-bit comparator greater                             : 8
+ 32-bit comparator lessequal                           : 11
+ 4-bit comparator greater                              : 1
+ 8-bit comparator greater                              : 1
+# Multiplexers                                         : 1054
+ 1-bit 2-to-1 multiplexer                              : 559
+ 1-bit 7-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 8
+ 11-bit 2-to-1 multiplexer                             : 8
+ 12-bit 2-to-1 multiplexer                             : 9
+ 128-bit 2-to-1 multiplexer                            : 2
+ 13-bit 2-to-1 multiplexer                             : 8
+ 14-bit 2-to-1 multiplexer                             : 8
+ 15-bit 2-to-1 multiplexer                             : 8
+ 16-bit 2-to-1 multiplexer                             : 27
+ 17-bit 2-to-1 multiplexer                             : 8
+ 18-bit 2-to-1 multiplexer                             : 8
+ 19-bit 2-to-1 multiplexer                             : 8
+ 2-bit 2-to-1 multiplexer                              : 14
+ 20-bit 2-to-1 multiplexer                             : 8
+ 21-bit 2-to-1 multiplexer                             : 8
+ 22-bit 2-to-1 multiplexer                             : 8
+ 23-bit 2-to-1 multiplexer                             : 8
+ 24-bit 2-to-1 multiplexer                             : 8
+ 25-bit 2-to-1 multiplexer                             : 8
+ 26-bit 2-to-1 multiplexer                             : 8
+ 27-bit 2-to-1 multiplexer                             : 10
+ 28-bit 2-to-1 multiplexer                             : 8
+ 29-bit 2-to-1 multiplexer                             : 8
+ 3-bit 2-to-1 multiplexer                              : 17
+ 30-bit 2-to-1 multiplexer                             : 8
+ 31-bit 2-to-1 multiplexer                             : 7
+ 32-bit 13-to-1 multiplexer                            : 1
+ 32-bit 2-to-1 multiplexer                             : 184
+ 32-bit 4-to-1 multiplexer                             : 1
+ 32-bit 7-to-1 multiplexer                             : 1
+ 32-bit 8-to-1 multiplexer                             : 1
+ 33-bit 2-to-1 multiplexer                             : 2
+ 4-bit 2-to-1 multiplexer                              : 21
+ 4-bit 7-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 8
+ 6-bit 2-to-1 multiplexer                              : 8
+ 64-bit 2-to-1 multiplexer                             : 5
+ 7-bit 2-to-1 multiplexer                              : 8
+ 8-bit 12-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 11
+ 9-bit 2-to-1 multiplexer                              : 8
+ 96-bit 2-to-1 multiplexer                             : 2
+# Logic shifters                                       : 32
+ 12-bit shifter logical left                           : 4
+ 12-bit shifter logical right                          : 4
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 3
+ 32-bit shifter logical right                          : 2
+ 4-bit shifter logical left                            : 2
+ 96-bit shifter logical left                           : 8
+ 96-bit shifter logical right                          : 8
+# FSMs                                                 : 3
+# Xors                                                 : 20
+ 1-bit xor2                                            : 1
+ 16-bit xor2                                           : 18
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <uart0_inst/FSM_0> on signal <state[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 0000
+ 1001  | 1001
+ 0001  | 0001
+ 0010  | 0010
+ 0011  | 0011
+ 0101  | 0101
+ 0100  | 0100
+ 1010  | 1010
+ 0111  | 0111
+ 1000  | 1000
+ 0110  | 0110
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <uart0_inst/uart_inst/tx_inst/FSM_2> on signal <state[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <uart0_inst/uart_inst/rx_inst/FSM_1> on signal <state[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00
+ 010   | 01
+ 011   | 11
+ 100   | 10
+-------------------
+WARNING:Xst:1710 - FF/Latch <status_3> (without init value) has a constant value of 0 in block <uart0_wbm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <status_4> (without init value) has a constant value of 0 in block <uart0_wbm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <status_5> (without init value) has a constant value of 0 in block <uart0_wbm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <status_6> (without init value) has a constant value of 0 in block <uart0_wbm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <status_7> (without init value) has a constant value of 0 in block <uart0_wbm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <baud_phase_0> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <baud_phase_1> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <baud_phase_2> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <baud_phase_3> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <baud_phase_4> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <baud_phase_5> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <baud_phase_6> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_0> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_1> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_2> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_3> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_4> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_5> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:2677 - Node <sample_phase_6> of sequential type is unconnected in block <uart_baudrate>.
+WARNING:Xst:1710 - FF/Latch <error_code_31> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_30> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_29> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_28> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_27> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_26> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_25> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_24> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_23> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_22> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_21> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_20> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_19> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_18> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_17> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_16> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_15> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_14> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_13> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_12> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_11> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_10> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_9> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_8> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_7> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_6> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_5> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_4> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_3> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <error_code_2> (without init value) has a constant value of 0 in block <program_loader_wb>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <program_counter> ...
+
+Optimizing unit <cpu_soc> ...
+
+Optimizing unit <uart0_wbm> ...
+
+Optimizing unit <uart_tx> ...
+
+Optimizing unit <uart_baudrate> ...
+
+Optimizing unit <uart_rx> ...
+
+Optimizing unit <crossbar_wb> ...
+
+Optimizing unit <program_loader_wb> ...
+
+Optimizing unit <debug_controller_wbs> ...
+
+Optimizing unit <cpu_core> ...
+
+Optimizing unit <load_store_unit> ...
+
+Optimizing unit <register_file> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <wb_memory_1> ...
+
+Optimizing unit <wb_memory_2> ...
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_31> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_30> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_29> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_28> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_27> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_26> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_25> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_24> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_23> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_22> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_21> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_20> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_19> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_18> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_17> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_1> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <loader_inst/target_addr_0> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <crossbar_inst/owner_2> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <crossbar_inst/owner_3> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_31> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_30> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_29> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_28> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_27> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_26> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_25> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_24> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_23> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_22> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_21> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_20> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_19> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_18> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_17> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_0> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <loader_inst/M_ADR_O_1> (without init value) has a constant value of 0 in block <cpu_soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <crossbar_inst/prefer_3> is unconnected in block <cpu_soc>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <crossbar_inst/prefer_2> is unconnected in block <cpu_soc>.
+INFO:Xst:2261 - The FF/Latch <crossbar_inst/age0_31> in Unit <cpu_soc> is equivalent to the following 21 FFs/Latches, which will be removed : <crossbar_inst/age0_30> <crossbar_inst/age0_29> <crossbar_inst/age0_28> <crossbar_inst/age0_27> <crossbar_inst/age0_26> <crossbar_inst/age0_25> <crossbar_inst/age0_24> <crossbar_inst/age0_23> <crossbar_inst/age0_22> <crossbar_inst/age0_21> <crossbar_inst/age0_20> <crossbar_inst/age0_19> <crossbar_inst/age0_18> <crossbar_inst/age0_17> <crossbar_inst/age0_16> <crossbar_inst/age0_15> <crossbar_inst/age0_14> <crossbar_inst/age0_13> <crossbar_inst/age0_12> <crossbar_inst/age0_11> <crossbar_inst/age0_10> 
+INFO:Xst:2261 - The FF/Latch <uart0_inst/idle_count_31> in Unit <cpu_soc> is equivalent to the following 8 FFs/Latches, which will be removed : <uart0_inst/idle_count_30> <uart0_inst/idle_count_29> <uart0_inst/idle_count_28> <uart0_inst/idle_count_27> <uart0_inst/idle_count_26> <uart0_inst/idle_count_25> <uart0_inst/idle_count_24> <uart0_inst/idle_count_23> 
+INFO:Xst:2261 - The FF/Latch <crossbar_inst/age1_31> in Unit <cpu_soc> is equivalent to the following 21 FFs/Latches, which will be removed : <crossbar_inst/age1_30> <crossbar_inst/age1_29> <crossbar_inst/age1_28> <crossbar_inst/age1_27> <crossbar_inst/age1_26> <crossbar_inst/age1_25> <crossbar_inst/age1_24> <crossbar_inst/age1_23> <crossbar_inst/age1_22> <crossbar_inst/age1_21> <crossbar_inst/age1_20> <crossbar_inst/age1_19> <crossbar_inst/age1_18> <crossbar_inst/age1_17> <crossbar_inst/age1_16> <crossbar_inst/age1_15> <crossbar_inst/age1_14> <crossbar_inst/age1_13> <crossbar_inst/age1_12> <crossbar_inst/age1_11> <crossbar_inst/age1_10> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block cpu_soc, actual ratio is 34.
+FlipFlop core_inst/pc_inst/pc_o_10 has been replicated 3 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 651
+ Flip-Flops                                            : 651
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : cpu_soc.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 3843
+#      GND                         : 1
+#      INV                         : 48
+#      LUT1                        : 94
+#      LUT2                        : 145
+#      LUT3                        : 223
+#      LUT4                        : 365
+#      LUT5                        : 444
+#      LUT6                        : 1722
+#      MUXCY                       : 385
+#      MUXF7                       : 170
+#      VCC                         : 1
+#      XORCY                       : 245
+# FlipFlops/Latches                : 651
+#      FDP                         : 2
+#      FDR                         : 90
+#      FDRE                        : 536
+#      FDS                         : 3
+#      FDSE                        : 20
+# RAMS                             : 281
+#      RAM128X1D                   : 128
+#      RAM32M                      : 15
+#      RAM32X1D                    : 6
+#      RAM64M                      : 130
+#      RAM64X1D                    : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 16
+#      IBUF                        : 2
+#      IBUFG                       : 1
+#      OBUF                        : 13
+# DCMs                             : 1
+#      DCM_SP                      : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             651  out of  18224     3%  
+ Number of Slice LUTs:                 4149  out of   9112    45%  
+    Number used as Logic:              3041  out of   9112    33%  
+    Number used as Memory:             1108  out of   2176    50%  
+       Number used as RAM:             1108
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   4282
+   Number with an unused Flip Flop:    3631  out of   4282    84%  
+   Number with an unused LUT:           133  out of   4282     3%  
+   Number of fully used LUT-FF pairs:   518  out of   4282    12%  
+   Number of unique control sets:        42
+
+IO Utilization: 
+ Number of IOs:                          16
+ Number of bonded IOBs:                  16  out of    232     6%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk_i                              | DCM_SP:CLKDV           | 932   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 10.009ns (Maximum Frequency: 99.908MHz)
+   Minimum input arrival time before clock: 3.053ns
+   Maximum output required time after clock: 4.913ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_i'
+  Clock period: 10.009ns (frequency: 99.908MHz)
+  Total number of paths / destination ports: 321936758100 / 4714
+-------------------------------------------------------------------------
+Delay:               20.018ns (Levels of Logic = 27)
+  Source:            core_inst/pc_inst/pc_o_12 (FF)
+  Destination:       core_inst/rf_inst/Mram_registers15 (RAM)
+  Source Clock:      clk_i rising 0.5X
+  Destination Clock: clk_i rising 0.5X
+
+  Data Path: core_inst/pc_inst/pc_o_12 to core_inst/rf_inst/Mram_registers15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             9   0.447   1.174  core_inst/pc_inst/pc_o_12 (core_inst/pc_inst/pc_o_12)
+     LUT5:I0->O            1   0.203   0.000  imem_inst/ram_inst/Mcompar_cpu_valid_lut<0> (imem_inst/ram_inst/Mcompar_cpu_valid_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  imem_inst/ram_inst/Mcompar_cpu_valid_cy<0> (imem_inst/ram_inst/Mcompar_cpu_valid_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  imem_inst/ram_inst/Mcompar_cpu_valid_cy<1> (imem_inst/ram_inst/Mcompar_cpu_valid_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  imem_inst/ram_inst/Mcompar_cpu_valid_cy<2> (imem_inst/ram_inst/Mcompar_cpu_valid_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  imem_inst/ram_inst/Mcompar_cpu_valid_cy<3> (imem_inst/ram_inst/Mcompar_cpu_valid_cy<3>)
+     MUXCY:CI->O          41   0.213   1.420  imem_inst/ram_inst/Mcompar_cpu_valid_cy<4> (imem_inst/ram_inst/Mcompar_cpu_valid_cy<4>)
+     LUT6:I5->O           18   0.205   1.278  imem_inst/ram_inst/Mmux_cpu_rdata_o12 (imem_rdata<1>)
+     LUT6:I3->O          113   0.205   1.912  core_inst/cu_inst/opcode_i[6]_GND_18_o_equal_21_o<6>11 (core_inst/cu_inst/opcode_i[6]_GND_18_o_equal_21_o<6>1)
+     LUT6:I5->O            6   0.205   0.745  core_inst/cu_inst/ALUControl_o<3>21 (core_inst/cu_inst/ALUControl_o<3>2)
+     LUT6:I5->O           11   0.205   0.883  core_inst/alu_inst/Mmux_result_o1011 (core_inst/alu_inst/Mmux_result_o101)
+     LUT6:I5->O            2   0.205   0.721  core_inst/alu_inst/Mmux_result_o2031_SW0 (N618)
+     LUT6:I4->O            2   0.203   0.617  core_inst/alu_inst/Mmux_result_o2031 (core_inst/alu_inst/Mmux_result_o203)
+     LUT6:I5->O            1   0.205   0.580  core_inst/alu_inst/Mmux_result_o203 (core_inst/alu_inst/Mmux_result_o202)
+     LUT6:I5->O           12   0.205   0.909  core_inst/alu_inst/Mmux_result_o205 (dmem_addr<18>)
+     LUT6:I5->O            1   0.205   0.580  core_inst/alu_inst/zero_o6_SW0 (N260)
+     LUT6:I5->O           17   0.205   1.028  core_inst/alu_inst/zero_o6 (core_inst/alu_inst/zero_o5)
+     LUT6:I5->O            8   0.205   0.803  core_inst/alu_inst/zero_o8 (core_inst/zero)
+     LUT6:I5->O            9   0.205   0.830  core_inst/bu_inst/Mmux_branch_taken_o2 (core_inst/branch_taken)
+     LUT5:I4->O            1   0.205   0.000  core_inst/Madd_pc_plus_lut<22> (core_inst/Madd_pc_plus_lut<22>)
+     MUXCY:S->O            1   0.172   0.000  core_inst/Madd_pc_plus_cy<22> (core_inst/Madd_pc_plus_cy<22>)
+     MUXCY:CI->O           1   0.019   0.000  core_inst/Madd_pc_plus_cy<23> (core_inst/Madd_pc_plus_cy<23>)
+     MUXCY:CI->O           1   0.019   0.000  core_inst/Madd_pc_plus_cy<24> (core_inst/Madd_pc_plus_cy<24>)
+     MUXCY:CI->O           1   0.019   0.000  core_inst/Madd_pc_plus_cy<25> (core_inst/Madd_pc_plus_cy<25>)
+     MUXCY:CI->O           1   0.019   0.000  core_inst/Madd_pc_plus_cy<26> (core_inst/Madd_pc_plus_cy<26>)
+     XORCY:CI->O           3   0.180   0.651  core_inst/Madd_pc_plus_xor<27> (core_inst/pc_plus<27>)
+     LUT5:I4->O            2   0.205   0.617  core_inst/Mmux_rd_data202_SW0 (N308)
+     LUT6:I5->O            3   0.205   0.650  core_inst/Mmux_rd_data203 (cpu_wb_data<27>)
+     RAM32M:DIB1               0.028          core_inst/rf_inst/Mram_registers25
+    ----------------------------------------
+    Total                     20.018ns (4.621ns logic, 15.397ns route)
+                                       (23.1% logic, 76.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_i'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.053ns (Levels of Logic = 2)
+  Source:            rst_i (PAD)
+  Destination:       reset_sync_0 (FF)
+  Destination Clock: clk_i rising 0.5X
+
+  Data Path: rst_i to reset_sync_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.580  rst_i_IBUF (rst_i_IBUF)
+     LUT2:I1->O            2   0.205   0.616  reset_request1 (reset_request)
+     FDP:PRE                   0.430          reset_sync_0
+    ----------------------------------------
+    Total                      3.053ns (1.857ns logic, 1.196ns route)
+                                       (60.8% logic, 39.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_i'
+  Total number of paths / destination ports: 21 / 12
+-------------------------------------------------------------------------
+Offset:              4.913ns (Levels of Logic = 2)
+  Source:            display_inst/digit_select_1 (FF)
+  Destination:       dp_o (PAD)
+  Source Clock:      clk_i rising 0.5X
+
+  Data Path: display_inst/digit_select_1 to dp_o
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            11   0.447   1.111  display_inst/digit_select_1 (display_inst/digit_select_1)
+     LUT3:I0->O            1   0.205   0.579  display_inst/Mmux_dp_o11 (dp_o_OBUF)
+     OBUF:I->O                 2.571          dp_o_OBUF (dp_o)
+    ----------------------------------------
+    Total                      4.913ns (3.223ns logic, 1.690ns route)
+                                       (65.6% logic, 34.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk_i
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_i          |   20.018|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 20.32 secs
+ 
+--> 
+
+
+Total memory usage is 432720 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   88 (   0 filtered)
+Number of infos    :   22 (   0 filtered)
+

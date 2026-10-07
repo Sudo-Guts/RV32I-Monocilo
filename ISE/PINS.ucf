@@ -1,0 +1,25 @@
+NET "clk_i" LOC = "V10" | IOSTANDARD = LVCMOS33;
+
+NET "clk_i" TNM_NET = "sys_clk";
+TIMESPEC "TS_sys_clk" = PERIOD "sys_clk" 10 ns HIGH 50%;
+
+NET "rx_i" LOC = "N17" | IOSTANDARD = LVCMOS33;
+
+NET "tx_o" LOC = "N18" | IOSTANDARD = LVCMOS33;
+
+NET "rst_i" LOC = "B8" | IOSTANDARD = LVCMOS33;
+
+NET "seg_o<0>" LOC = "T17" | IOSTANDARD = LVCMOS33; # CA
+NET "seg_o<1>" LOC = "T18" | IOSTANDARD = LVCMOS33; # CB
+NET "seg_o<2>" LOC = "U17" | IOSTANDARD = LVCMOS33; # CC
+NET "seg_o<3>" LOC = "U18" | IOSTANDARD = LVCMOS33; # CD
+NET "seg_o<4>" LOC = "M14" | IOSTANDARD = LVCMOS33; # CE
+NET "seg_o<5>" LOC = "N14" | IOSTANDARD = LVCMOS33; # CF
+NET "seg_o<6>" LOC = "L14" | IOSTANDARD = LVCMOS33; # CG
+
+NET "dp_o" LOC = "M13" | IOSTANDARD = LVCMOS33;
+
+NET "an_o<0>" LOC = "N16" | IOSTANDARD = LVCMOS33; # derecha
+NET "an_o<1>" LOC = "N15" | IOSTANDARD = LVCMOS33;
+NET "an_o<2>" LOC = "P18" | IOSTANDARD = LVCMOS33;
+NET "an_o<3>" LOC = "P17" | IOSTANDARD = LVCMOS33; # izquierda

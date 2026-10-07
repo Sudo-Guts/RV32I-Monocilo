@@ -1,0 +1,20 @@
+{
+  "verilog": {
+    "include_dirs": [
+      "RTL",
+      "SIM/models",
+      "SIM/tb"
+    ],
+    "defines": [],
+    "sources": [],
+    "compile_args": [],
+    "run_args": [],
+    "top": "wb_address_decoder_tb",
+    "standard": "2012",
+    "testbench": "SIM/tb/wb_address_decoder_tb.v",
+    "run_dir": ".",
+    "extra_sources": [],
+    "timeout_ms": 30000
+  },
+  "version": 1
+}

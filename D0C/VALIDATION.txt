@@ -1,0 +1,21 @@
+RV32I-Monociclo_v3_wb_style - Structural validation
+====================================================
+
+PASS
+
+Checks ejecutados sobre la entrega:
+  [PASS] 22 archivos .v y 22 modulos.
+  [PASS] Cada nombre de modulo coincide con el nombre base del archivo.
+  [PASS] Tops Wishbone usan puertos uppercase.
+  [PASS] Modulos no-Wishbone usan puertos lowercase con _i/_o.
+  [PASS] Wire/reg internos no usan _i/_o.
+  [PASS] Named ports de todas las instancias coinciden con su modulo destino.
+  [PASS] uart.v ya no contiene FIFO.
+  [PASS] uart0_wbm.v contiene RX FIFO e instancia uart.v.
+  [PASS] No se incluyen archivos legacy renombrados.
+  [PASS] Fuentes Verilog en ASCII.
+  [PASS] Parentesis, brackets y llaves balanceados en chequeo lexical basico.
+
+Nota:
+Este chequeo es estructural y de consistencia de interfaces. La prueba final debe
+ser Xilinx ISE 14.7: Synthesize, Translate, Map, PAR y Timing Analyzer.
