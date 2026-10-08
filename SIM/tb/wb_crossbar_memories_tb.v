@@ -286,9 +286,13 @@ module wb_crossbar_memories_tb;
 
             completed = 1'b0;
 
+            // Primero muestrear EN EL MISMO CICLO de la solicitud.
+            // Las direcciones no mapeadas generan ERR combinacional:
+            // si esperamos al primer posedge, el crossbar ya habra
+            // registrado la respuesta y el pulso puede desaparecer.
+            #1;
+
             for (count=0; count<40 && !completed; count=count+1) begin
-                @(posedge CLK_I);
-                #1;
                 if (M_ACK_O[m] || M_ERR_O[m]) begin
                     completed = 1'b1;
                     check_true(
@@ -307,8 +311,19 @@ module wb_crossbar_memories_tb;
                                 "Dato de lectura desde la RAM equivocada"
                             );
                     end
+                end else begin
+                    // Esperar al siguiente flanco solamente si aun no hay
+                    // terminacion visible. Muestrear tras actualizar la FSM.
+                    @(posedge CLK_I);
+                    #1;
                 end
             end
+
+            if (!completed)
+                $display(
+                    "[DEBUG] Timeout TB: Master=%0d ADR=%h WE=%b SEL=%h",
+                    m, address, write_enable, byte_select
+                );
 
             check_true(completed, "Transaccion no termino en 40 ciclos");
 
