@@ -1,3 +1,9 @@
+HISTORICO - antes de separar RAM fisica y adaptadores Wishbone
+================================================================
+Este registro corresponde a la version anterior de cpu_soc, no a la
+refactorizacion actual. No usar los PASS siguientes como validacion
+de los nuevos archivos instruction_memory.v / data_memory.v.
+
 RV32I-Monociclo_v3_wb_style - Structural validation
 ====================================================
 
