@@ -2,14 +2,14 @@
 
 /*
  * ========================================================================
- *  Wishbone Memory - Internal shared RAM primitive
+ *  Wishbone Memory - LEGACY standalone RAM (testbench reference only)
  * ------------------------------------------------------------------------
  *  Memoria de palabras de 32 bits organizada en cuatro bancos de 8 bits.
  *  Tiene un puerto local para CPU y un puerto interno compatible con Wishbone.
  *
- *  Este archivo NO es un top Wishbone del SoC: instruction_memory_wbs y
- *  data_memory_wbs son los slaves visibles por crossbar_wb. Por esa razon,
- *  sus puertos siguen la convencion normal en minusculas con _i / _o.
+ *  Conservado para wb_memory_tb.v y comparacion con la arquitectura previa.
+ *  El SoC actual usa instruction_memory.v y data_memory.v como RAM fisicas,
+ *  con adaptadores *_wbs externos. No instanciar este modulo en cpu_soc.
  *
  *  El puerto CPU usa direcciones locales de byte. El puerto bus usa una
  *  direccion absoluta y resta BASE_ADDR. Las lecturas son asincronas y la
