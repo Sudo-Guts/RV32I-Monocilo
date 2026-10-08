@@ -58,6 +58,10 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="99"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="26"/>
     </file>
+    <file xil_pn:name="../RTL/memory/data_memory.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="100"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="27"/>
+    </file>
     <file xil_pn:name="../RTL/memory/data_memory_wbs.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="81"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="17"/>
@@ -69,6 +73,10 @@
     <file xil_pn:name="../RTL/core/imm_gen.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="83"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="9"/>
+    </file>
+    <file xil_pn:name="../RTL/memory/instruction_memory.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="101"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
     </file>
     <file xil_pn:name="../RTL/memory/instruction_memory_wbs.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="84"/>
@@ -113,10 +121,6 @@
     <file xil_pn:name="../RTL/peripherals/uart0_wbm.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="94"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
-    </file>
-    <file xil_pn:name="../RTL/peripherals/wb_memory.v" xil_pn:type="FILE_VERILOG">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="95"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
     </file>
   </files>
 

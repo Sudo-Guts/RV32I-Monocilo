@@ -434,61 +434,96 @@ module cpu_soc #(
       .dbg_mem_addr_o      ()
   );
 
-  // ========================================================================
-  //  Instruction Memory Wishbone Slave - S0
-  // ------------------------------------------------------------------------
-  //  CPU_ADDR_I es local y combinacional. El puerto Wishbone permite lectura
-  //  y programacion solamente cuando CPU_HALTED_O permanece activo.
-  // ========================================================================
+
+  // IMEM: almacenamiento fisico fuera de cpu_core y adaptador Wishbone S0.
+  // Los dos puertos comparten los mismos bancos de RAM.
+  wire [31:0] imem_wb_addr;
+  wire [31:0] imem_wb_wdata;
+  wire [31:0] imem_wb_rdata;
+  wire [3:0]  imem_wb_sel;
+  wire        imem_wb_we;
+
+  instruction_memory #(
+      .WORD_ADDR_WIDTH(IMEM_WORD_ADDR_WIDTH)
+  ) imem_inst (
+      .clk_i(clk_sys),
+      .cpu_addr_i (imem_addr),
+      .cpu_rdata_o(imem_rdata),
+      .wb_addr_i (imem_wb_addr),
+      .wb_wdata_i(imem_wb_wdata),
+      .wb_sel_i  (imem_wb_sel),
+      .wb_we_i   (imem_wb_we),
+      .wb_rdata_o(imem_wb_rdata)
+  );
 
   instruction_memory_wbs #(
       .WORD_ADDR_WIDTH(IMEM_WORD_ADDR_WIDTH),
-      .WAIT_CYCLES    (MEMORY_WAIT_CYCLES)
-  ) imem_inst (
-      .CLK_I      (clk_sys),
-      .RST_I      (rst_sys),
-      .CPU_ADDR_I (imem_addr),
-      .CPU_RDATA_O(imem_rdata),
-      .ACCESS_OK_I(cpu_halted),
-      .ADR_I      (s_adr[31:0]),
-      .DAT_I      (s_wdata[31:0]),
-      .SEL_I      (s_sel[3:0]),
-      .WE_I       (s_we[0]),
-      .CYC_I      (s_cyc[0]),
-      .STB_I      (s_stb[0]),
-      .DAT_O      (s_rdata[31:0]),
-      .ACK_O      (s_ack[0]),
-      .ERR_O      (s_err[0])
+      .WAIT_CYCLES(MEMORY_WAIT_CYCLES)
+  ) imem_wbs_inst (
+      .CLK_I       (clk_sys),
+      .RST_I       (rst_sys),
+      .ACCESS_OK_I (cpu_halted),
+      .ADR_I       (s_adr[31:0]),
+      .DAT_I       (s_wdata[31:0]),
+      .SEL_I       (s_sel[3:0]),
+      .WE_I        (s_we[0]),
+      .CYC_I       (s_cyc[0]),
+      .STB_I       (s_stb[0]),
+      .DAT_O       (s_rdata[31:0]),
+      .ACK_O       (s_ack[0]),
+      .ERR_O       (s_err[0]),
+      .MEM_ADDR_O  (imem_wb_addr),
+      .MEM_WDATA_O (imem_wb_wdata),
+      .MEM_SEL_O   (imem_wb_sel),
+      .MEM_WE_O    (imem_wb_we),
+      .MEM_RDATA_I (imem_wb_rdata)
   );
 
-  // ========================================================================
-  //  Data Memory Wishbone Slave - S1
-  // ------------------------------------------------------------------------
-  //  El puerto local recibe LOAD/STORE del core. Wishbone comparte la RAM
-  //  exclusivamente durante mantenimiento con la CPU detenida.
-  // ========================================================================
+  // DMEM: almacenamiento fisico fuera de cpu_core y adaptador Wishbone S1.
+  // Los dos puertos comparten los mismos bancos de RAM.
+  wire [31:0] dmem_wb_addr;
+  wire [31:0] dmem_wb_wdata;
+  wire [31:0] dmem_wb_rdata;
+  wire [3:0]  dmem_wb_sel;
+  wire        dmem_wb_we;
+
+  data_memory #(
+      .WORD_ADDR_WIDTH(DMEM_WORD_ADDR_WIDTH)
+  ) dmem_inst (
+      .clk_i(clk_sys),
+      .cpu_addr_i        (dmem_addr),
+      .cpu_wdata_i       (dmem_wdata),
+      .cpu_we_i          (dmem_we),
+      .cpu_byte_enable_i (dmem_byte_enable),
+      .cpu_rdata_o       (dmem_rdata),
+      .wb_addr_i (dmem_wb_addr),
+      .wb_wdata_i(dmem_wb_wdata),
+      .wb_sel_i  (dmem_wb_sel),
+      .wb_we_i   (dmem_wb_we),
+      .wb_rdata_o(dmem_wb_rdata)
+  );
 
   data_memory_wbs #(
       .WORD_ADDR_WIDTH(DMEM_WORD_ADDR_WIDTH),
-      .WAIT_CYCLES    (MEMORY_WAIT_CYCLES)
-  ) dmem_inst (
-      .CLK_I            (clk_sys),
-      .RST_I            (rst_sys),
-      .CPU_ADDR_I       (dmem_addr),
-      .CPU_WDATA_I      (dmem_wdata),
-      .CPU_WE_I         (dmem_we),
-      .CPU_BYTE_ENABLE_I(dmem_byte_enable),
-      .CPU_RDATA_O      (dmem_rdata),
-      .ACCESS_OK_I      (cpu_halted),
-      .ADR_I            (s_adr[63:32]),
-      .DAT_I            (s_wdata[63:32]),
-      .SEL_I            (s_sel[7:4]),
-      .WE_I             (s_we[1]),
-      .CYC_I            (s_cyc[1]),
-      .STB_I            (s_stb[1]),
-      .DAT_O            (s_rdata[63:32]),
-      .ACK_O            (s_ack[1]),
-      .ERR_O            (s_err[1])
+      .WAIT_CYCLES(MEMORY_WAIT_CYCLES)
+  ) dmem_wbs_inst (
+      .CLK_I       (clk_sys),
+      .RST_I       (rst_sys),
+      .ACCESS_OK_I (cpu_halted),
+      .ADR_I       (s_adr[63:32]),
+      .DAT_I       (s_wdata[63:32]),
+      .SEL_I       (s_sel[7:4]),
+      .WE_I        (s_we[1]),
+      .CYC_I       (s_cyc[1]),
+      .STB_I       (s_stb[1]),
+      .DAT_O       (s_rdata[63:32]),
+      .ACK_O       (s_ack[1]),
+      .ERR_O       (s_err[1]),
+      .MEM_ADDR_O  (dmem_wb_addr),
+      .MEM_WDATA_O (dmem_wb_wdata),
+      .MEM_SEL_O   (dmem_wb_sel),
+      .MEM_WE_O    (dmem_wb_we),
+      .MEM_RDATA_I (dmem_wb_rdata)
   );
 
   // ========================================================================
