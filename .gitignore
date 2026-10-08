@@ -33,6 +33,9 @@ ISE/xst/
 # Xilinx ISE generated files
 # -----------------------------------------------------------
 
+ISE/*.gise
+ISE/*_pad.csv
+ISE/*_pad.txt
 ISE/*.bgn
 ISE/*.bld
 ISE/*.bit
