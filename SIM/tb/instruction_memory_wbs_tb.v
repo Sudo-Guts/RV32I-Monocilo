@@ -48,13 +48,32 @@ module instruction_memory_wbs_tb;
     integer checks;
     integer k;
 
+    wire [31:0] MEM_ADDR_O;
+    wire [31:0] MEM_WDATA_O;
+    wire [3:0]  MEM_SEL_O;
+    wire        MEM_WE_O;
+    wire [31:0] MEM_RDATA_I;
+
+    // La RAM fisica y el adaptador se instancian al mismo nivel,
+    // igual que en cpu_soc.v. Ambos acceden al mismo almacenamiento.
+    instruction_memory #(
+        .WORD_ADDR_WIDTH(9)
+    ) ram_inst (
+        .clk_i       (CLK_I),
+        .cpu_addr_i  (CPU_ADDR_I),
+        .cpu_rdata_o (CPU_RDATA_O),
+        .wb_addr_i   (MEM_ADDR_O),
+        .wb_wdata_i  (MEM_WDATA_O),
+        .wb_sel_i    (MEM_SEL_O),
+        .wb_we_i     (MEM_WE_O),
+        .wb_rdata_o  (MEM_RDATA_I)
+    );
+
     instruction_memory_wbs #(
         .WAIT_CYCLES(WAIT_CYCLES)
     ) dut (
         .CLK_I(CLK_I),
         .RST_I(RST_I),
-        .CPU_ADDR_I(CPU_ADDR_I),
-        .CPU_RDATA_O(CPU_RDATA_O),
         .ACCESS_OK_I(ACCESS_OK_I),
         .ADR_I(ADR_I),
         .DAT_I(DAT_I),
@@ -64,7 +83,12 @@ module instruction_memory_wbs_tb;
         .STB_I(STB_I),
         .DAT_O(DAT_O),
         .ACK_O(ACK_O),
-        .ERR_O(ERR_O)
+        .ERR_O(ERR_O),
+        .MEM_ADDR_O (MEM_ADDR_O),
+        .MEM_WDATA_O(MEM_WDATA_O),
+        .MEM_SEL_O  (MEM_SEL_O),
+        .MEM_WE_O   (MEM_WE_O),
+        .MEM_RDATA_I(MEM_RDATA_I)
     );
 
     always #5 CLK_I = ~CLK_I;
