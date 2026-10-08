@@ -62,6 +62,16 @@ module wb_switch_control_tb;
     integer granted;
     integer chosen_channel;
     integer sequence_number;
+    integer model_i;
+    integer model_j;
+    integer model_master;
+    integer model_slave;
+    integer model_selected_master;
+    integer model_selected_slave;
+    integer model_chosen_channel;
+    integer model_granted;
+    integer model_start_slave;
+
 
     reg [31:0] rng;
     reg [3:0] random_req;
@@ -103,8 +113,8 @@ module wb_switch_control_tb;
                 expected_master = 4'b0000;
                 expected_slave  = 4'b0000;
 
-                for (i = 0; i < 4; i = i + 1)
-                    rr_master[i] = 0;
+                for (model_i = 0; model_i < 4; model_i = model_i + 1)
+                    rr_master[model_i] = 0;
 
                 rr_slave = 0;
 
@@ -114,31 +124,31 @@ module wb_switch_control_tb;
                 next_master = expected_master;
                 next_slave  = expected_slave;
 
-                for (i = 0; i < 4; i = i + 1) begin
-                    used_master[i] = 0;
-                    used_slave[i]  = 0;
-                    winner[i]      = -1;
+                for (model_i = 0; model_i < 4; model_i = model_i + 1) begin
+                    used_master[model_i] = 0;
+                    used_slave[model_i]  = 0;
+                    winner[model_i]      = -1;
                 end
 
                 // Retener solo conexiones cuyo Master no libera.
-                for (i = 0; i < 2; i = i + 1) begin
+                for (model_i = 0; model_i < 2; model_i = model_i + 1) begin
 
-                    selected_master = expected_master[i*2 +: 2];
-                    selected_slave  = expected_slave[i*2 +: 2];
+                    model_selected_master = expected_master[model_i*2 +: 2];
+                    model_selected_slave  = expected_slave[model_i*2 +: 2];
 
                     if (
-                        expected_valid[i] &&
-                        !M_RELEASE_I[selected_master]
+                        expected_valid[model_i] &&
+                        !M_RELEASE_I[model_selected_master]
                     ) begin
 
-                        used_master[selected_master] = 1;
-                        used_slave[selected_slave]   = 1;
+                        used_master[model_selected_master] = 1;
+                        used_slave[model_selected_slave]   = 1;
 
                     end else begin
 
-                        next_valid[i]             = 1'b0;
-                        next_master[i*2 +: 2]    = 2'd0;
-                        next_slave[i*2 +: 2]     = 2'd0;
+                        next_valid[model_i]             = 1'b0;
+                        next_master[model_i*2 +: 2]    = 2'd0;
+                        next_slave[model_i*2 +: 2]     = 2'd0;
 
                     end
 
@@ -146,24 +156,24 @@ module wb_switch_control_tb;
 
                 // Cada Slave elige un Master elegible, empezando por su
                 // puntero independiente de round-robin.
-                for (slave = 0; slave < 4; slave = slave + 1) begin
+                for (model_slave = 0; model_slave < 4; model_slave = model_slave + 1) begin
 
-                    if (!used_slave[slave]) begin
+                    if (!used_slave[model_slave]) begin
 
-                        for (j = 0; j < 4; j = j + 1) begin
+                        for (model_j = 0; model_j < 4; model_j = model_j + 1) begin
 
-                            master = (rr_master[slave] + j) % 4;
+                            model_master = (rr_master[model_slave] + model_j) % 4;
 
                             if (
-                                winner[slave] < 0 &&
-                                M_REQ_I[master] &&
-                                M_TARGET_VALID_I[master] &&
-                                !M_RELEASE_I[master] &&
-                                !used_master[master] &&
-                                (M_TARGET_I[master*2 +: 2] == slave)
+                                winner[model_slave] < 0 &&
+                                M_REQ_I[model_master] &&
+                                M_TARGET_VALID_I[model_master] &&
+                                !M_RELEASE_I[model_master] &&
+                                !used_master[model_master] &&
+                                (M_TARGET_I[model_master*2 +: 2] == model_slave)
                             ) begin
 
-                                winner[slave] = master;
+                                winner[model_slave] = model_master;
 
                             end
 
@@ -175,39 +185,40 @@ module wb_switch_control_tb;
 
                 // Repartir hasta dos concesiones siguiendo el orden
                 // global entre Slaves. CH0 es el primero si ambos libres.
-                granted = 0;
+                model_granted = 0;
+                model_start_slave = rr_slave;
 
-                for (j = 0; j < 4; j = j + 1) begin
+                for (model_j = 0; model_j < 4; model_j = model_j + 1) begin
 
-                    selected_slave = (rr_slave + j) % 4;
+                    model_selected_slave = (model_start_slave + model_j) % 4;
 
-                    if (winner[selected_slave] >= 0 && granted < 2) begin
+                    if (winner[model_selected_slave] >= 0 && model_granted < 2) begin
 
-                        chosen_channel = -1;
+                        model_chosen_channel = -1;
 
                         if (!next_valid[0])
-                            chosen_channel = 0;
+                            model_chosen_channel = 0;
                         else if (!next_valid[1])
-                            chosen_channel = 1;
+                            model_chosen_channel = 1;
 
-                        if (chosen_channel >= 0) begin
+                        if (model_chosen_channel >= 0) begin
 
-                            next_valid[chosen_channel] = 1'b1;
+                            next_valid[model_chosen_channel] = 1'b1;
 
-                            next_master[chosen_channel*2 +: 2] =
-                                winner[selected_slave];
+                            next_master[model_chosen_channel*2 +: 2] =
+                                winner[model_selected_slave];
 
-                            next_slave[chosen_channel*2 +: 2] =
-                                selected_slave;
+                            next_slave[model_chosen_channel*2 +: 2] =
+                                model_selected_slave;
 
-                            rr_master[selected_slave] =
-                                (winner[selected_slave] + 1) % 4;
+                            rr_master[model_selected_slave] =
+                                (winner[model_selected_slave] + 1) % 4;
 
                             // El ultimo Slave concedido determina el
                             // siguiente punto de partida global.
-                            rr_slave = (selected_slave + 1) % 4;
+                            rr_slave = (model_selected_slave + 1) % 4;
 
-                            granted = granted + 1;
+                            model_granted = model_granted + 1;
 
                         end
 
