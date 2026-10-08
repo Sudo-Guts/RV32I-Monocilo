@@ -1,84 +1,67 @@
+RV32I-Monociclo - Jerarquia de memorias y Wishbone
+==================================================
+
 cpu_soc
 |
-+-- clock_manager
++-- cpu_core                           RV32I monociclo
+|   |-- Puerto IMEM local (lectura combinacional)
+|   `-- Puerto DMEM local (lectura combinacional / escritura por bytes)
 |
-+-- uart0_wbm                         Wishbone Master M0
-|   |
-|   +-- uart
-|   |   +-- uart_baudrate
-|   |   +-- uart_rx
-|   |   `-- uart_tx
-|   |
-|   +-- RX FIFO
-|   +-- protocol parser
-|   +-- CRC-16
-|   `-- Wishbone transaction FSM
++-- instruction_memory                  RAM fisica IMEM, S0
+|   |-- Puerto CPU <- cpu_core
+|   `-- Puerto WB  <- instruction_memory_wbs (adaptador)
+|
++-- instruction_memory_wbs              Wishbone Slave S0, SOLO protocolo
+|   `-- MEM_* -> instruction_memory
+|
++-- data_memory                         RAM fisica DMEM, S1
+|   |-- Puerto CPU <- cpu_core
+|   `-- Puerto WB  <- data_memory_wbs (adaptador)
+|
++-- data_memory_wbs                     Wishbone Slave S1, SOLO protocolo
+|   `-- MEM_* -> data_memory
 |
 +-- wb_crossbar
-|   |
-|   +-- wb_address_decoder
-|   +-- wb_switch_control
-|   +-- wb_switch_fabric
-|   |
-|   +-- S0 -> instruction_memory_wbs
-|   |         `-- wb_memory
-|   |
-|   +-- S1 -> data_memory_wbs
-|   |         `-- wb_memory
-|   |
-|   +-- S2 -> program_loader_wb       Wishbone Slave S2
-|   |             `-- M1              Wishbone Master M1
-|   |
-|   `-- S3 -> debug_controller_wbs
+|   |-- wb_address_decoder
+|   |-- wb_switch_control
+|   `-- wb_switch_fabric
 |
-+-- cpu_core
-|   +-- program_counter
-|   +-- control_unit
-|   +-- imm_gen
-|   +-- register_file
-|   +-- alu
-|   +-- branch_unit
-|   `-- load_store_unit
++-- uart0_wbm                           Wishbone Master M0
+|   `-- uart / UART FIFO / parser / CRC
 |
++-- program_loader_wb                   Wishbone Slave S2 y Master M1
+|
++-- debug_controller_wbs                Wishbone Slave S3
+|
++-- clock_manager
 `-- rv32_display
 
-Wishbone fijo
+Reglas de arquitectura
+----------------------
+- cpu_soc instancia las RAM fisicas y los adaptadores WBS como hermanos.
+- Los dos puertos de cada RAM acceden a LOS MISMOS bancos de almacenamiento.
+- Puerto CPU: direcciones locales, lectura combinacional para monociclo.
+- Puerto MEM del adaptador: direcciones locales, escritura de una sola RAM.
+- Adaptador WBS: traduce direccion absoluta, valida rango y permisos,
+  genera wait states y ACK/ERR; no contiene bancos de RAM.
+- IMEM/DMEM no son caches. wb_memory.v permanece como referencia historica
+  y para su testbench; ya no forma parte del TOP ni de fuentes ISE.
+- M2 y M3 estan reservados para el nucleo multiciclo futuro.
+- M0 UART, M1 Loader, S0 IMEM, S1 DMEM, S2 Loader y S3 Debugger.
+- CH0 y CH1 son rutas Wishbone dinamicas, no canales dedicados.
+
+Mapa Wishbone
 -------------
-Masters:
-  M0 UART0
-  M1 Program Loader
-  M2 reservado para CPU multiciclo
-  M3 reservado para CPU multiciclo
+S0 IMEM   0x0000_0000 .. 0x0000_FFFF; RAM real: 2048 bytes (por defecto).
+S1 DMEM   0x0001_0000 .. 0x0001_FFFF; RAM real: 1024 bytes (por defecto).
+S2 Loader 0x1000_0000 .. 0x1000_00FF.
+S3 Debug  0x1000_1000 .. 0x1000_10FF.
 
-Canales:
-  CH0 dinamico
-  CH1 dinamico
+Verificacion tras refactorizacion
+--------------------------------
+SIM/tb/instruction_memory_wbs_tb.v - adaptador + RAM IMEM fisica.
+SIM/tb/data_memory_wbs_tb.v        - adaptador + RAM DMEM fisica.
+SIM/tb/wb_memory_tb.v              - prueba LEGACY de wb_memory.v.
+SIM/tb/wb_crossbar_tb.v            - pruebas con Slaves simulados.
 
-Slaves:
-  S0 IMEM
-  S1 DMEM
-  S2 Loader
-  S3 Debugger
-
-Cada canal registra MASTER_SEL y SLAVE_SEL. Ningun canal pertenece
-permanentemente a un Master.
-
-Flujo host -> SoC
------------------
-Python
-  |
-  v
-UART0 serial
-  |
-  v
-uart0_wbm / RX FIFO / parser
-  |
-  v
-M0
-  |
-  v
-wb_crossbar
-  |---- S0 IMEM
-  |---- S1 DMEM
-  |---- S2 Loader ----> M1 ----> wb_crossbar ----> S0/S1
-  `---- S3 Debugger
+Las nuevas pruebas de IMEM/DMEM y la sintesis ISE deben ejecutarse de nuevo.
