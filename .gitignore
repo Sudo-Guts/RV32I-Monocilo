@@ -1,0 +1,65 @@
+# -----------------------------------------------------------
+# Firmware build
+# -----------------------------------------------------------
+
+C0DE/out/
+C0DE/compile_commands.json
+
+
+# -----------------------------------------------------------
+# RTL simulation
+# -----------------------------------------------------------
+
+SIM/out/
+SIM/iverilog.f
+SIM/verible.filelist
+SIM/project.json
+
+*.vcd
+*.vvp
+
+# -----------------------------------------------------------
+# Xilinx ISE generated directories
+# -----------------------------------------------------------
+
+ISE/_ngo/
+ISE/_xmsgs/
+ISE/iseconfig/
+ISE/xlnx_auto_0_xdb/
+ISE/xst/
+
+
+# -----------------------------------------------------------
+# Xilinx ISE generated files
+# -----------------------------------------------------------
+
+ISE/*.bgn
+ISE/*.bld
+ISE/*.bit
+ISE/*.cmd_log
+ISE/*.drc
+ISE/*.html
+ISE/*.lso
+ISE/*.map
+ISE/*.mrp
+ISE/*.ncd
+ISE/*.ngc
+ISE/*.ngd
+ISE/*.ngm
+ISE/*.ngr
+ISE/*.pad
+ISE/*.par
+ISE/*.pcf
+ISE/*.ptwx
+ISE/*.syr
+ISE/*.twr
+ISE/*.twx
+ISE/*.unroutes
+ISE/*.xml
+ISE/*.xpi
+ISE/*.xrpt
+ISE/*.xwbt
+ISE/*.stx
+ISE/*.ut
+ISE/webtalk*
+ISE/par_usage_statistics.html

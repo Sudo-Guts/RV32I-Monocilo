@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\Nesti\Documents\RV32I-Monocilo\CPU\ISE\cpu_soc.ncd
-OUTFILE=C:\Users\Nesti\Documents\RV32I-Monocilo\CPU\ISE\cpu_soc.bit
-FAMILY=Spartan6
-PART=xc6slx16-3csg324
-WORKINGDIR=C:\Users\Nesti\Documents\RV32I-Monocilo\CPU\ISE
-LICENSE=WebPack
-USER_INFO=211847159_0_0_350
